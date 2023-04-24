@@ -1,0 +1,121 @@
+@media only screen and (min-width: 321px) {
+    .board {
+        max-width: 1440px;
+    }
+    .cell {
+        height: 50px;
+        width: 50px;
+    }
+
+    .status {
+        img {
+            height: 30px;
+            width: auto;
+        }
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    board {
+        max-width: 320px;
+    }
+    .cell {
+        height: 20px;
+        width: 20px;
+    }
+    .boardPage {
+        flex-wrap: wrap;
+    }
+
+    .status {
+        img {
+            height: 15px;
+            width: auto;
+        }
+        margin-bottom: 20px;
+    }
+}
+
+.boardPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.status {
+    // fix width item in flex container
+    width: 300px;
+
+    .shipStatus {
+        display: flex;
+        padding: 5px;
+    }
+
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 500; // half z-index from dialog
+
+    backdrop-filter: blur(6px);
+}
+
+.deadShip {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+}
+
+.dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+
+    z-index: 1000; /* Make sure the dialog is above the overlay */
+}
+
+.board {
+    border: 2px solid orange;
+    display: flex;
+    flex-direction: column;
+    // row but not last row
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+    .cell {
+        padding: 0;
+        border: 1px solid black;
+
+        box-sizing: border-box;
+
+        cursor: pointer;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .gameOver {
+        background-image: url(./assets/miss_small.png);
+        cursor: not-allowed;
+    }
+
+    .hit {
+        background-image: url(./assets/hit_small.png);
+        cursor: not-allowed;
+    }
+
+    .miss {
+        background-image: url(./assets/miss_small.png);
+        cursor: not-allowed;
+    }
+}
